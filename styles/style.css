@@ -1,80 +1,188 @@
-
 /* filepath: \\sn928escoladfp1\pastas alunos$\57439748883\Desktop\Projetos\Na medida certa\styles\login.css */
-body {
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&family=Poppins:wght@700;800&display=swap');
+
+/* Reset e Configurações Globais */
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+body {
   min-height: 100vh;
-  font-family: Arial, Helvetica, sans-serif;
-  background: linear-gradient(135deg, #3a8dde 0%, #7b2ff2 100%);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background: linear-gradient(135deg, #000428 0%, #004e92 100%);
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
 }
 
-.cadastro-container {
-  background: rgba(255,255,255,0.95);
-  padding: 32px 28px;
-  border-radius: 16px;
-  box-shadow: 0 8px 32px rgba(60,60,120,0.15);
-  max-width: 350px;
+/* Título de Fundo Animado - Mais chamativo */
+body::before {
+  content: "Na Medida Certa";
+  position: fixed;
+  font-size: 20vw;
+  font-weight: 800;
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.15));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  white-space: nowrap;
+  z-index: 0;
+  text-transform: uppercase;
+  pointer-events: none;
+  animation: floatText 25s linear infinite;
+  text-shadow: 0 0 100px rgba(255, 255, 255, 0.2);
+}
+
+/* Container Principal com Efeito de Vidro */
+.home-container {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 60px;
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  max-width: 500px;
   width: 100%;
+  position: relative;
+  z-index: 1;
+  backdrop-filter: blur(20px);
+  animation: fadeIn 0.8s ease-out;
 }
 
-.cadastro-form {
+/* Título Principal com Destaque */
+.home-container h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 40px;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+  animation: pulseText 2s infinite;
+}
+
+/* Grupo de Botões Flutuantes */
+.button-group {
   display: flex;
   flex-direction: column;
+  gap: 35px;
+  position: relative;
+  z-index: 2;
 }
 
-.cadastro-form h2 {
-  text-align: center;
-  margin-bottom: 18px;
-  color: #3a8dde;
-}
-
-.cadastro-form label {
-  margin-bottom: 6px;
-  color: #333;
-  font-weight: 500;
-}
-
-.cadastro-form input {
-  margin-bottom: 16px;
-  padding: 10px;
-  border: 1px solid #bdbdbd;
-  border-radius: 6px;
-  font-size: 1rem;
-  outline: none;
-  transition: border 0.2s;
-}
-
-.cadastro-form input:focus {
-  border: 1.5px solid #7b2ff2;
-}
-
-.cadastro-form button {
-  background: linear-gradient(90deg, #3a8dde 0%, #7b2ff2 100%);
-  color: #fff;
+/* Botões Modernos e Flutuantes */
+.home-btn {
+  background: rgba(255, 255, 255, 0.95);
+  color: #004e92;
   border: none;
-  border-radius: 6px;
-  padding: 12px;
-  font-size: 1rem;
-  font-weight: bold;
+  border-radius: 50px;
+  padding: 25px 45px;
+  font-size: 1.4rem;
+  font-weight: 700;
   cursor: pointer;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(5px);
 }
 
-.cadastro-form button:hover {
-  background: linear-gradient(90deg, #7b2ff2 0%, #3a8dde 100%);
+.home-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.8),
+    transparent
+  );
+  transition: 0.6s;
 }
 
-.login-btn {
-  margin-top: 8px;
-  background: transparent;
-  color: #7b2ff2;
-  border: 2px solid #7b2ff2;
-  font-weight: bold;
+.home-btn:hover {
+  transform: translateY(-8px) scale(1.02);
+  background: #fff;
+  color: #000428;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
-.login-btn:hover {
-  background: #7b2ff2;
-  color: #fff;
+.home-btn:hover::before {
+  left: 100%;
+}
+
+.home-btn:active {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Novas Animações */
+@keyframes pulseText {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animação do texto de fundo atualizada */
+@keyframes floatText {
+  0% {
+    transform: translateX(100%) rotate(5deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-100%) rotate(5deg);
+    opacity: 0;
+  }
+}
+
+/* Responsividade Melhorada */
+@media (max-width: 640px) {
+  body::before {
+    font-size: 25vw;
+  }
+
+  .home-container {
+    padding: 40px 30px;
+    margin: 15px;
+  }
+
+  .home-container h1 {
+    font-size: 2.5rem;
+  }
+
+  .button-group {
+    gap: 25px;
+    padding: 0 20px;
+  }
+
+  .home-btn {
+    padding: 20px 35px;
+    font-size: 1.2rem;
+  }
 }

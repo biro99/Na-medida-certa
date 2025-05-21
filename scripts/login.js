@@ -7,11 +7,12 @@ document.addEventListener('DOMContentLoaded', function() {
         e.preventDefault();
         const usuario = document.getElementById('usuario').value.trim();
         const senha = document.getElementById('senha').value;
-        let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
-        const user = usuarios.find(u => u.usuario === usuario && u.senha === senha);
-        if (user) {
+        const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+        const usuarioEncontrado = usuarios.find(u => u.usuario === usuario && u.senha === senha);
+        if (usuarioEncontrado) {
           alert('Login realizado com sucesso!');
-          // window.location.href = 'index.html'; // Redirecione para a página principal se quiser
+          // Redirecionar para a página principal após login
+          window.location.href = 'home.html'; // Substitua por sua página principal
         } else {
           alert('Usuário ou senha inválidos!');
         }

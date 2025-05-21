@@ -1,12 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <title>Document</title>
+  <link rel="stylesheet" href="styles/style.css">
+  <title>Na Medida Certa</title>
 </head>
 <body>
-  <script src="script.js"></script>
+  <div class="home-container">
+    <h1>Na Medida Certa</h1>
+    <div class="button-group">
+      <button id="btn-cadastro" class="home-btn">Cadastro</button>
+      <button id="btn-login" class="home-btn">Entrar</button>
+    </div>
+  </div>
+  <script>
+    document.getElementById('btn-cadastro').addEventListener('click', function() {
+      window.location.href = 'cadastro.html';
+    });
+
+    document.getElementById('btn-login').addEventListener('click', function() {
+      window.location.href = 'login.html';
+    });
+  </script>
 </body>
 </html>
